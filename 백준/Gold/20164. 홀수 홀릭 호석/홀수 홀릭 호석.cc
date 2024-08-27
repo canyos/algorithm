@@ -54,7 +54,7 @@ int main() {
 		auto v = qu.front();
 		qu.pop();
 		int num = v.first, cnt = v.second;
-		if (num > 100) {
+		if (num >= 100) {
 			int length = cntLen(num);
 			for (int i = 1; i <= length-2; i++) {
 				for (int j = 1; j <= length - 2; j++) {
@@ -69,11 +69,10 @@ int main() {
 				}
 			}
 		}
-		else if (num > 10) {
+		else if (num >= 10) {
 			qu.push({ num / 10 + num % 10,cnt + cntOdd(num / 10 + num % 10)});
 		}
 		else {
-			cnt = cnt + cntOdd(num);
 			if (cnt > MAX)MAX = cnt;
 			if (cnt < MIN)MIN = cnt;
 		}
