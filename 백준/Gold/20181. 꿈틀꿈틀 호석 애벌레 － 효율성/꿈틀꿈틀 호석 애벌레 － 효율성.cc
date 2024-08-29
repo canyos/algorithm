@@ -10,13 +10,14 @@
 using namespace std;
 int N, M, K;
 int arr[100001];
+long long dp[100001];
 class stick {
 public:
 	int start;
 	int end;
 	int value;
 
-	stick(int start, int end, int value) {
+	stick(int start, int end, long long value) {
 		this->start = start;
 		this->end = end;
 		this->value = value;
@@ -24,7 +25,6 @@ public:
 };
 
 vector<stick> sticks[100001];
-int dp[100001];
 
 void input() {
 	cin >> N  >> K;
@@ -33,7 +33,7 @@ void input() {
 	}
 }
 
-void tp() {
+void twoPointer() {
 	int left = 1, right = 1;
 	int sum = arr[1];
 	while (right <= N) {
@@ -41,6 +41,7 @@ void tp() {
 			sticks[right].push_back(stick(left, right, sum - K));
 			sum -= arr[left];
 			left++;
+
 		}
 		else {
 			right++;
@@ -51,7 +52,7 @@ void tp() {
 
 void DP() {
 	for (int i = 1; i <= N; i++) {
-		int temp = 0;
+		long long temp = 0;
 		for (int j = 0; j < (int)sticks[i].size(); j++) {
 			temp = max(temp, dp[sticks[i][j].start - 1] + sticks[i][j].value);
 		}
@@ -65,7 +66,7 @@ int main() {
 	cout.tie(NULL);
 	
 	input();
-	tp();
+	twoPointer();
 	DP();
 
 	cout << dp[N];
