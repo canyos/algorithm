@@ -36,13 +36,13 @@ int main()
 	{
 		int temp = 0;
 		for (int i = it[0]; i < it[1]; i++)
-			temp = max(temp, box[i]);
+			temp = max(temp, box[i]);//배송 구간 중 최대 실린 무게
 
-		int left = min(c - temp,it[2]);
-		answer += left;
+		int left = min(c - temp,it[2]); // (용량-최대무게, 현재 무게) 중 작은거 고름 -> 더 실을 수 있는 무게
+		answer += left; // 무게를 담음
 		//cout << answer;
 		for (int i = it[0]; i < it[1]; i++)
-			box[i] += left;
+			box[i] += left; //해당 구간동안 배송하도록 함
 
 		
 	}
