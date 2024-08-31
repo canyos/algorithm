@@ -38,7 +38,7 @@ public:
 int N, M, A, B, C;
 vector <edge> edges[11];//시작,끝,비용
 queue <node> qu; //현재 방문 노드, 비용, 수치심, 방문한 노드
-int result = 100000000;
+int result = 1e9;
 
 void input() {
 	cin >> N >> M >> A >> B >> C;
@@ -46,6 +46,7 @@ void input() {
 	for (int i = 0; i < M; i++) {
 		cin >> start >> end >> cost;
 		edges[start].push_back(edge(start,end,cost));
+		edges[end].push_back(edge(end, start, cost));
 	}
 }
 
@@ -62,6 +63,7 @@ int main() {
 	while (!qu.empty()) {
 		auto v = qu.front(); qu.pop();//v는 현재 노드
 		//cout << v.cur << endl; 
+		if (v.maxCost > result)continue;
 		if (v.cost > C)continue;//비용을 넘었는지
 		if (v.cur == B) { //현재 방문한 노드가 목표지점인지
 			result = min(result, v.maxCost);
@@ -69,12 +71,13 @@ int main() {
 			continue;
 		}
 		
+		
 		for (auto it : edges[v.cur]) {//it는 edge
 			if (v.visited & (1 << it.end)) continue; //방문한 적 있으면 패스
 			qu.push({ it.end, v.cost + it.cost, max(v.maxCost, it.cost), v.visited | (1<< it.end) });
 		}
 	}
-	if (result == 100000000) cout << "-1";
+	if (result == 1e9) cout << "-1";
 	else cout << result;
 	return 0;
 }
