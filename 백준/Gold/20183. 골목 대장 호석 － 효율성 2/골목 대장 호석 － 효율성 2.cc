@@ -10,7 +10,7 @@
 
 using namespace std;
 typedef long long ll;
-#define INF 1000000001
+#define INF 1000000000000000LL 
 class edge {
 public:
 	int end;
@@ -23,7 +23,7 @@ public:
 
 int N, M, A, B; ll C;
 vector <edge> edges[100001];//시작,끝,비용
-ll result = INF;
+
 
 void input() {
 	cin >> N >> M >> A >> B >> C;
@@ -69,7 +69,7 @@ int main() {
 	cout.tie(NULL);
 
 	input();
-
+	ll result = -1;
 	ll left = 1, right = 1000000000;
 	while (left <= right) {
 
@@ -77,13 +77,12 @@ int main() {
 		//cout << left << " "  << mid << " " << right << endl;
 		if (dijkstra(mid)) {
 			right = mid - 1;
-			result = min(result, mid);
+			result = mid;
 		}
 		else
 			left = mid + 1;
 	}
-	if (result == 1000000001) cout << "-1";
-	else cout << result;
+	cout << result;
 
 	return 0;
 }
