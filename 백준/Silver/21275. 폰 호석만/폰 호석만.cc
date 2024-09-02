@@ -54,7 +54,7 @@ int main() {
 	for (int i = ii + 1; i <= 36; i++) {
 		for (int j = jj + 1; j <= 36; j++) {
 			ll a = stringToDec(strA, i), b = stringToDec(strB, j);
-			if (a == b && a > 0 &&  i!=j) {
+			if (a == b && a >= 0 &&  i!=j) {
 				v.push_back({ a, i, j });
 			}
 			//cout << a << " " << b << " " << i << " " << j << endl;
