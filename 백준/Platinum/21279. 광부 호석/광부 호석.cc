@@ -15,12 +15,12 @@ struct item {
 	int y;
 	int value;
 } ;
-vector<item> itemX[100001];
-vector<item> itemY[100001];
+vector<item> itemX[100005];
+vector<item> itemY[100005];
 
 int N, C;
 int x, y, v;
-int h = 100000, w = 0, cnt=0;
+int h = 100000, w = -1, cnt=0;
 ll sum = 0,result = 0;
 
 
@@ -59,10 +59,10 @@ int main() {
 
 	input();
 	
-	while (h > 0 && w <= 100000) {
+	while (h >= 0 && w <= 100000) {
 		//cout << w << " " << h << " " <<cnt << endl;
 		if (cnt > C)del(h--);
-		else add(w++);
+		else add(++w);
 		
 		if (cnt <= C) {
 			if (sum > result) {
