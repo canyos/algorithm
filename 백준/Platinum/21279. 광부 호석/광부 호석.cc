@@ -10,33 +10,45 @@
 
 using namespace std;
 typedef long long ll;
-vector<int> itemX[100001];
-vector<int> itemY[100001];
+struct item {
+	int x;
+	int y;
+	int value;
+} ;
+vector<item> itemX[100001];
+vector<item> itemY[100001];
 
 int N, C;
 int x, y, v;
-int h = 100000, w = 0, sum = 0, result = 0,cnt=0;
+int h = 100000, w = 0, cnt=0;
+ll sum = 0,result = 0;
 
 
 void input() {
 	cin >> N >> C;
 	for (int i = 0; i < N; i++) {
 		cin >> x >> y >> v;
-		itemX[x].push_back(v);
-		itemY[y].push_back(v);
+		itemX[x].push_back({ x,y,v });
+		itemY[y].push_back({ x,y,v });
 	}
 }
 void del(int h) {
-	for (int v : itemY[h]) {
-		cnt--;
-		sum -= v;
+	for (item it : itemY[h]) {
+		if (it.x <= w) {
+			cnt--;
+			sum -= it.value;
+		}
+		
 	}
 }
 
 void add(int w) {
-	for (int v : itemX[w]) {
-		cnt++;
-		sum += v;
+	for (item it : itemX[w]) {
+		if (it.y <= h) {
+			cnt++;
+			sum += it.value;
+		}
+
 	}
 }
 
