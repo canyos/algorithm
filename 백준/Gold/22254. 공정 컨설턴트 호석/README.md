@@ -36,3 +36,7 @@
 
  <p>모든 선물을 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mi class="mjx-i"><mjx-c class="mjx-c1D44B TEX-I"></mjx-c></mjx-mi></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mi>X</mi></math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$X$</span></mjx-container>시간 이내에 제작하기 위해 필요한 최소 공정 라인 개수를 출력하라.</p>
 
+### 해설
+1. 제일 가동시간이 적은 곳에다가 다음 물건을 붙여주면 제일 최소화 할 수 있음
+2. pq를 통해 간단히 해결가능 하다고 생각함
+3. 이진 탐색을 통해 라인 개수를 정해놓고 시간이 초과하는 힙이 발생하지않을때만 result갱신
