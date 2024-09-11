@@ -46,3 +46,10 @@
 
  <p>첫 번째 줄에 호석사우루스가 탈출하는 과정에서 받는 최소 충격량을 출력한다. 만약 탈출하지 못한다면 <mjx-container class="MathJax" jax="CHTML" style="font-size: 109%; position: relative;"><mjx-math class="MJX-TEX" aria-hidden="true"><mjx-mo class="mjx-n"><mjx-c class="mjx-c2212"></mjx-c></mjx-mo><mjx-mn class="mjx-n"><mjx-c class="mjx-c31"></mjx-c></mjx-mn></mjx-math><mjx-assistive-mml unselectable="on" display="inline"><math xmlns="http://www.w3.org/1998/Math/MathML"><mo>−</mo><mn>1</mn></math></mjx-assistive-mml><span aria-hidden="true" class="no-mathjax mjx-copytext">$-1$</span></mjx-container> 을 출력한다.</p>
 
+### 해설
+
+모든 노드마다 방향이 존재하고 같은 위치여도 방향에따라 더 나은 결과를 낳을 수 있다
+
+visited를 3차원 배열로 선언해 방향에따라 지금까지의 비용도 기록
+
+나머지는 bfs구현임
