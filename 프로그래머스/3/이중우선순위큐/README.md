@@ -48,3 +48,6 @@ class Solution {
 ```
 
 ### 해설
+1. arrayList를 이용해 빼는 조건이 들어오면 정렬해서 뺏음 nlogn * n인데 통과되네?;;
+2. 탐색하면서 하나만 빼면 n*n까지는 줄일 수 있을 듯
+3. pq에서도 erase(Object obj)를 지원해 pq를 두개 사용해 푸는 방법도 있음
