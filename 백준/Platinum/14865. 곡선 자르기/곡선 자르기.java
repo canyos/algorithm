@@ -78,7 +78,10 @@ public class Main {
 				y=b;
 			}
 			if(fx==x && (fy>0 && y<0 || fy<0 && y>0))
-				list.add(new Pair(x,prev));
+				if(x<prev)
+					list.add(new Pair(x,prev));
+				else
+					list.add(new Pair(prev,x));
 		}
 		
 //		for(Pair a : list) {
