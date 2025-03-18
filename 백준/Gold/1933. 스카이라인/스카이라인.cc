@@ -78,10 +78,15 @@ int main() {
 
 		if (cur.left > end) {//지금 높이가 끝나는 지점보다 오른쪽에 위치한 빌딩
 			while (!pq.empty() && pq.top().right < cur.left) {//end(cur.left)의 위치에 존재하는 빌딩중 가장 큰거 찾기
-				if (pq.top().right > end && pq.top().height != height) {
-					height = pq.top().height;
-					cout << end << " " << height << " ";
-					end = pq.top().right;
+				if (pq.top().right > end ) {
+					if (pq.top().height != height) {
+						height = pq.top().height;
+						cout << end << " " << height << " ";
+						end = pq.top().right;
+					}
+					else {
+						end = pq.top().right;
+					}
 				}
 				pq.pop();
 			}
