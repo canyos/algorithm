@@ -45,29 +45,7 @@ int main() {
 				}
 				answer = max(answer, cnt);
 
-				cnt = 0;
-				for (auto fish : fishes) {
-					if (r-h <= fish.first && fish.first <= r && c <= fish.second && fish.second <= c + w) {
-						cnt++;
-					}
-				}
-				answer = max(answer, cnt);
 
-				cnt = 0;
-				for (auto fish : fishes) {
-					if (r <= fish.first && fish.first <= r + h && c-w <= fish.second && fish.second <= c) {
-						cnt++;
-					}
-				}
-				answer = max(answer, cnt);
-
-				cnt = 0;
-				for (auto fish : fishes) {
-					if (r-h <= fish.first && fish.first <= r && c-w <= fish.second && fish.second <= c) {
-						cnt++;
-					}
-				}
-				answer = max(answer, cnt);
 			}
 		}
 	}
